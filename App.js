@@ -21,10 +21,10 @@ class Body extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      player: 0,
-      theBot: 1,
-      result: 1,
-      clicks: 0,
+      player: '',
+      theBot: '',
+      result: '1',
+      clicks: '',
     }
   }
 
@@ -62,18 +62,18 @@ class Body extends React.Component {
            value={this.state.player}/>
         <TextInput
           keyboardType="numeric"
-          style={styles.textInput}
+          style={styles.result}
           value={this.state.result}/>
         <TextInput
           keyboardType="numeric"
           style={styles.textInput}
           value={this.state.theBot}/>
-      <Button
-        id='count'
-        title='Count'
-        value='Count'
-        onPress={ () => this.showresult(), () => this.clickCount(), () => this.winningStrategy()} />
-  </KeyboardAvoidingView>
+        <Button
+          id='count'
+          title='Count'
+          value='Count'
+          onPress={ () => this.showresult(), () => this.clickCount(), () => this.winningStrategy()} />
+      </KeyboardAvoidingView>
     )
   }
 }
@@ -122,6 +122,15 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 20,
     backgroundColor: 'red',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  result: {
+    height: 50,
+    width: 70,
+    margin: 10,
+    borderRadius: 20,
+    backgroundColor: '#00BB3E',
     justifyContent: 'center',
     alignItems: 'center'
   }
