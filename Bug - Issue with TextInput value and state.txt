@@ -1,0 +1,8 @@
+NOTE:TextInput requires string value.Value of TextInput is the components
+state,but I can't do manipulations with string
+
+Fisrt option:
+Try to turn state into string and pass it to TextInput value with some kind
+of stringify
+
+https://stackoverflow.com/questions/32913338/react-native-get-textinput-value

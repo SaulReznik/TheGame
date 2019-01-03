@@ -1,0 +1,35 @@
+NOTE:The bug is in the all functions that I create,currently in
+1.showResult
+2.clickCount
+3.winningStrategy
+
+NOTE:I suspect that it related with this.setState,it trys too update the state
+constantly and becomes a INFINITE LOOP!
+
+What can I do with that?
+
+First option:
+bind all the functions - NOT WORKED
+
+NOTE:In my researches I find that it also can be a component lifecycle issue,
+in case of state or props changing the component automatically updates,I want
+to try find the solution in lifecycle methods for now.
+
+Second oprion:
+Try to find the solution in lifecycle methods - NOT FOUNDED
+
+NOTE:I tryed to alert the state when I clicked the Count button,but it works
+when I click the Start The Game Button,so it means that the program understands
+that onPress is common atribute or something like this,so we must fix this
+
+
+	SUBBUG:Fix the onPress bug that I note above
+	
+	First option:
+	bind the function that you call in onPress - WORKED!
+
+Main bug also fixed,Congratulations!
+
+
+
+ 
