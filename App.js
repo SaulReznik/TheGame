@@ -59,7 +59,8 @@ class Body extends React.Component {
         <TextInput
            keyboardType="numeric"
            style={styles.textInput}
-           value={this.state.player}/>
+           value={this.state.player}
+           onChangeText={(player) => this.setState({player})}/>
         <TextInput
           keyboardType="numeric"
           style={styles.result}
@@ -72,7 +73,7 @@ class Body extends React.Component {
           id='count'
           title='Count'
           value='Count'
-          onPress={ () => this.showresult(), () => this.clickCount(), () => this.winningStrategy()} />
+          onPress={() => this.showresult(), () => this.clickCount(), () => this.winningStrategy()} />
       </KeyboardAvoidingView>
     )
   }

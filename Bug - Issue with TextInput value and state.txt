@@ -6,3 +6,6 @@ Try to turn state into string and pass it to TextInput value with some kind
 of stringify
 
 https://stackoverflow.com/questions/32913338/react-native-get-textinput-value
+
+NOTE:I tryed something else,its didn't help me with whole bug,but it solve at
+least one problem,my players input value is now binded
