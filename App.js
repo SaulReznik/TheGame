@@ -43,8 +43,10 @@ class Body extends React.Component {
     }
 };
 
-    clickCount () {
-      this.setState({clicks: +1})
+    clickCount = () => {
+      this.setState(prevState => ({
+        clicks: prevState.count + 1
+      }))
     };
     //bot-um taqnvaca es xaxi gaxtniqy ;)
     winningStrategy () {
@@ -73,7 +75,9 @@ class Body extends React.Component {
           id='count'
           title='Count'
           value='Count'
-          onPress={() => this.showresult(), () => this.clickCount(), () => this.winningStrategy()} />
+          onPress={() => this.showresult(),
+                   () => this.clickCount(),
+                   () => this.winningStrategy()} />
       </KeyboardAvoidingView>
     )
   }

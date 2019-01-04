@@ -9,3 +9,12 @@ https://stackoverflow.com/questions/32913338/react-native-get-textinput-value
 
 NOTE:I tryed something else,its didn't help me with whole bug,but it solve at
 least one problem,my players input value is now binded
+
+NOTE:So now when I click on the Count button The Bot changes his value too.
+That means that my code recognise the state!For now I must fix result.
+
+NOTE:For now we have 2 bugy methods in Body showresult() and clickCount(),
+winningStrategy() is working well.
+
+	SUBBUG:I find out that I cant use more than one method in button,so I
+	must wrap it in one method  
