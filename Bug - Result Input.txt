@@ -1,0 +1,5 @@
+WHAT IS THE PROBLEM:when I click the button my algorithm are correctly
+calculate the bot-s input value,but not correct the result-s value,he just
+add players value and just 1
+
+ 
