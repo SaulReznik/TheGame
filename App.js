@@ -28,28 +28,31 @@ class Body extends React.Component {
     }
   }
 
-  showresult() {
+
+    allStuff() {
       if (this.state.player >= 1 && this.state.player <= 10) {
 
     //arajin kliki jamanak uxaki player-y u bot-y gumaruma irar,2rdic sksac arden resultnela gumarum
     if (this.state.clicks <= 1) {
-        this.setState({result: (this.state.player + this.state.theBot + 1)})
+        this.setState(prevState => ({
+          result: this.state.player + this.state.theBot + 1
+        }))
     } else if (this.state.clicks > 1) {
       this.setState({result: (this.state.result + this.state.player + this.state.theBot)})
       }
 
-    } else {
+     else {
       //console.log(false);
-    }
-};
+    }}
 
-    clickCount = () => {
+
+
       this.setState(prevState => ({
         clicks: prevState.count + 1
       }))
-    };
-    //bot-um taqnvaca es xaxi gaxtniqy ;)
-    winningStrategy () {
+
+    //winningStrategy-um taqnvaca es xaxi gaxtniqy ;)
+
 
       this.setState({theBot: (11 - this.state.player)})
 
@@ -75,9 +78,7 @@ class Body extends React.Component {
           id='count'
           title='Count'
           value='Count'
-          onPress={() => this.showresult(),
-                   () => this.clickCount(),
-                   () => this.winningStrategy()} />
+          onPress={() => this.allStuff()} />
       </KeyboardAvoidingView>
     )
   }

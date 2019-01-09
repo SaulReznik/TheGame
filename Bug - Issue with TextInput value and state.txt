@@ -16,5 +16,6 @@ That means that my code recognise the state!For now I must fix result.
 NOTE:For now we have 2 bugy methods in Body showresult() and clickCount(),
 winningStrategy() is working well.
 
-	SUBBUG:I find out that I cant use more than one method in button,so I
-	must wrap it in one method  
+	SUBBUG:I find out that I cant use more than one method in the button
+ 
+	First option:I must wrap it in one method
