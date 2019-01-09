@@ -35,7 +35,7 @@ class Body extends React.Component {
     //arajin kliki jamanak uxaki player-y u bot-y gumaruma irar,2rdic sksac arden resultnela gumarum
     if (this.state.clicks <= 1) {
         this.setState(prevState => ({
-          result: this.state.player + this.state.theBot + 1
+          result: this.state.player + this.state.theBot
         }))
     } else if (this.state.clicks > 1) {
       this.setState({result: (this.state.result + this.state.player + this.state.theBot)})
@@ -48,7 +48,7 @@ class Body extends React.Component {
 
 
       this.setState(prevState => ({
-        clicks: prevState.count + 1
+        clicks: ++prevState.clicks 
       }))
 
     //winningStrategy-um taqnvaca es xaxi gaxtniqy ;)
