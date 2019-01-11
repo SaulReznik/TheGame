@@ -2,4 +2,12 @@ WHAT IS THE PROBLEM:when I click the button my algorithm are correctly
 calculate the bot-s input value,but not correct the result-s value,he just
 add players value and just 1
 
- 
+NOTE:so I fix the click counter,now I find out that when I click the first time
+in result my algorithm just add the value of the player,in second click it adds
+the bots value to result,after second click it adds both values at once.
+
+	FIRST OPTION:try to find the bug in the conditions block of allStuff():
+	COME BACK IN CASE OF COLLAPSE OF SECOND OPTION 
+
+	SECOND OPTION:try do players iput with slider
+	 

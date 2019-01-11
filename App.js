@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, KeyboardAvoidingView, Slider } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 class HomeScreen extends React.Component {
@@ -21,7 +21,7 @@ class Body extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      player: '',
+      player: 1,
       theBot: '',
       result: '1',
       clicks: '',
@@ -33,11 +33,11 @@ class Body extends React.Component {
       if (this.state.player >= 1 && this.state.player <= 10) {
 
     //arajin kliki jamanak uxaki player-y u bot-y gumaruma irar,2rdic sksac arden resultnela gumarum
-    if (this.state.clicks <= 1) {
+    if (this.state.clicks < 1) {
         this.setState(prevState => ({
-          result: this.state.player + this.state.theBot
+          result: this.state.player +  this.state.theBot
         }))
-    } else if (this.state.clicks > 1) {
+    } else if (this.state.clicks >= 1) {
       this.setState({result: (this.state.result + this.state.player + this.state.theBot)})
       }
 
@@ -48,7 +48,7 @@ class Body extends React.Component {
 
 
       this.setState(prevState => ({
-        clicks: ++prevState.clicks 
+        clicks: ++prevState.clicks
       }))
 
     //winningStrategy-um taqnvaca es xaxi gaxtniqy ;)
@@ -58,9 +58,23 @@ class Body extends React.Component {
 
     }
 
+    change(player) {
+    this.setState(() => {
+      return {
+        player: parseFloat(player),
+      };
+    });
+}
+
   render() {
     return(
       <KeyboardAvoidingView behavior='padding' style={styles.container}>
+        <Slider
+            step={1}
+            maximumValue={10}
+            onValueChange={this.change.bind(this)}
+            value={player}
+          />
         <TextInput
            keyboardType="numeric"
            style={styles.textInput}

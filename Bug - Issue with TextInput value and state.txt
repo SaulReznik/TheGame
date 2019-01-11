@@ -18,4 +18,7 @@ winningStrategy() is working well.
 
 	SUBBUG:I find out that I cant use more than one method in the button
  
-	First option:I must wrap it in one method
+	First option:I must wrap it in one method-Guess worked,leave this bug
+	untile it not disturb us
+
+
