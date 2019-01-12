@@ -67,27 +67,23 @@ class Body extends React.Component {
 }
 
   render() {
+    const {player} = this.state
     return(
       <KeyboardAvoidingView behavior='padding' style={styles.container}>
+        <Text style={styles.text}>{String(player)}</Text>
         <Slider
+            style={styles.slider}
             step={1}
+            minimumValue={1}
             maximumValue={10}
-            onValueChange={this.change.bind(this)}
+            onValueChange={(player) => this.setState({player})}
             value={player}
           />
-        <TextInput
-           keyboardType="numeric"
-           style={styles.textInput}
-           value={this.state.player}
-           onChangeText={(player) => this.setState({player})}/>
         <TextInput
           keyboardType="numeric"
           style={styles.result}
           value={this.state.result}/>
-        <TextInput
-          keyboardType="numeric"
-          style={styles.textInput}
-          value={this.state.theBot}/>
+        <Text>THE BOT: {String(this.state.theBot)}</Text>
         <Button
           id='count'
           title='Count'
@@ -135,6 +131,9 @@ const styles = StyleSheet.create({
     fontSize:25,
     fontStyle:('normal','italic'),
     fontWeight:('700')
+  },
+  slider: {
+    width:550,
   },
   textInput: {
     height: 70,
