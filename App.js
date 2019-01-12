@@ -22,41 +22,45 @@ class Body extends React.Component {
     super(props);
     this.state = {
       player: 1,
-      theBot: '',
-      result: '1',
-      clicks: '',
+      theBot: 0,
+      result: 0,
+      clicks: 0,
     }
   }
 
 
-    allStuff() {
+    showResult() {
+
+
+
       if (this.state.player >= 1 && this.state.player <= 10) {
 
     //arajin kliki jamanak uxaki player-y u bot-y gumaruma irar,2rdic sksac arden resultnela gumarum
-    if (this.state.clicks < 1) {
-        this.setState(prevState => ({
-          result: this.state.player +  this.state.theBot
-        }))
-    } else if (this.state.clicks >= 1) {
-      this.setState({result: (this.state.result + this.state.player + this.state.theBot)})
+    if (this.state.clicks <= 1) {
+        this.setState({
+          result: +this.state.player + +this.state.theBot
+        })
+    } else if (this.state.clicks > 1) {
+      this.setState({result: (+this.state.result + +this.state.player + +this.state.theBot)})
       }
 
      else {
-      //console.log(false);
+      alert(false);
     }}
+ }
 
-
-
+    clickCount(){
       this.setState(prevState => ({
         clicks: ++prevState.clicks
       }))
+    }
 
     //winningStrategy-um taqnvaca es xaxi gaxtniqy ;)
-
-
+    winningStrategy() {
       this.setState({theBot: (11 - this.state.player)})
-
     }
+
+
 
     change(player) {
     this.setState(() => {
@@ -65,6 +69,8 @@ class Body extends React.Component {
       };
     });
 }
+
+
 
   render() {
     const {player} = this.state
@@ -79,16 +85,17 @@ class Body extends React.Component {
             onValueChange={(player) => this.setState({player})}
             value={player}
           />
-        <TextInput
-          keyboardType="numeric"
-          style={styles.result}
-          value={this.state.result}/>
-        <Text>THE BOT: {String(this.state.theBot)}</Text>
+        <Text style={{margin: 10}}>RESULT: {String(this.state.result)}</Text>
+        <Text style={{margin: 10}}>THE BOT: {String(this.state.theBot)}</Text>
         <Button
           id='count'
           title='Count'
           value='Count'
-          onPress={() => this.allStuff()} />
+          onPress={(event) => {
+            showResult();
+            clickCount();
+            winningStrategy();
+          }} />
       </KeyboardAvoidingView>
     )
   }
