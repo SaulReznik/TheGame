@@ -92,9 +92,9 @@ class Body extends React.Component {
           title='Count'
           value='Count'
           onPress={(event) => {
-            showResult();
-            clickCount();
-            winningStrategy();
+            this.showResult();
+            this.clickCount();
+            this.winningStrategy();
           }} />
       </KeyboardAvoidingView>
     )
