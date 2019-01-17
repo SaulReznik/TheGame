@@ -1,0 +1,4 @@
+1.Create a React Native copy of The Game - DONE!!!
+2.Create a second version of algorithm
+ 2.1.Create a function,that will take a random number for clicks every time
+ when application did update

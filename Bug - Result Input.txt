@@ -10,4 +10,6 @@ the bots value to result,after second click it adds both values at once.
 	COME BACK IN CASE OF COLLAPSE OF SECOND OPTION 
 
 	SECOND OPTION:try do players iput with slider
+
+NOTE:The bug is fixed,see "Bug - Issue with TextInput value and state
 	 

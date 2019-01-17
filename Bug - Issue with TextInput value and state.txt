@@ -21,4 +21,7 @@ winningStrategy() is working well.
 	First option:I must wrap it in one method-Guess worked,leave this bug
 	untile it not disturb us
 
+NOTE:Some time ago I understand,that the problem was in order of function call
+so I used Async/Await and its worked CONGRATULATIONS!!!
+
 

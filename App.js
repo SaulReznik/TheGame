@@ -22,14 +22,16 @@ class Body extends React.Component {
     super(props);
     this.state = {
       player: 1,
-      theBot: 0,
-      result: 0,
+      theBot: 1,
+      result: 1,
       clicks: 0,
     }
   }
 
 
-    showResult() {
+  showResult = async () => {
+
+    await this.winningStrategy;
     //arajin kliki jamanak uxaki player-y u bot-y gumaruma irar,2rdic sksac arden resultnela gumarum
         if (this.state.clicks < 1) {
           this.setState(prevState => ({
@@ -50,9 +52,8 @@ class Body extends React.Component {
     }
 
     //winningStrategy-um taqnvaca es xaxi gaxtniqy ;)
-     winningStrategy(callback) {
+     winningStrategy() {
       this.setState({theBot: (11 - this.state.player)})
-      callback()
     }
 
 
@@ -88,7 +89,8 @@ class Body extends React.Component {
           value='Count'
           onPress={() => {
             this.clickCount();
-            this.winningStrategy(this.showResult);
+            this.winningStrategy();
+            this.showResult();
           }} />
       </KeyboardAvoidingView>
     )
