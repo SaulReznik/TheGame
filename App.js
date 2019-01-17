@@ -56,6 +56,9 @@ class Body extends React.Component {
       this.setState({theBot: (11 - this.state.player)})
     }
 
+    randomClick() {
+
+    }
 
 
     change(player) {
@@ -73,7 +76,8 @@ class Body extends React.Component {
     return(
       <KeyboardAvoidingView behavior='padding' style={styles.container}>
         <Text style={styles.text}>{String(player)}</Text>
-        <Slider
+        <View style={styles.sliderContainer}>
+          <Slider
             style={styles.slider}
             step={1}
             minimumValue={1}
@@ -81,6 +85,7 @@ class Body extends React.Component {
             onValueChange={this.change.bind(this)}
             value={player}
           />
+        </View>
         <Text style={{margin: 10}}>THE BOT: {String(this.state.theBot)}</Text>
         <Text style={{margin: 10}}>RESULT: {String(this.state.result)}</Text>
         <Button
@@ -135,8 +140,11 @@ const styles = StyleSheet.create({
     fontStyle:('normal','italic'),
     fontWeight:('700')
   },
+  sliderContainer: {
+    flexDirection: 'row'
+  },
   slider: {
-    width:550,
+    flex: 0.95,
   },
   textInput: {
     height: 70,
