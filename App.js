@@ -117,7 +117,7 @@ class End extends React.Component {
         <Text style={styles.endingTitle}> YOU LOSE </Text>
         <TouchableOpacity
          style={styles.button}
-         onPress={ () => this.props.navigation.navigate('Details')}
+         onPress={ () => this.props.navigation.navigate('Home')}
          >
         <Text style={styles.text}>START AGAIN</Text>
         </TouchableOpacity>
