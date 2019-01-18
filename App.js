@@ -1,17 +1,29 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, KeyboardAvoidingView, Slider } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import {
+        StyleSheet,
+        Text,
+        View,
+        TouchableOpacity,
+        TextInput,
+        Button,
+        KeyboardAvoidingView,
+        Slider
+       } from 'react-native';
+import {
+        createStackNavigator,
+        createAppContainer
+   } from 'react-navigation';
 
 class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-         <TouchableOpacity
+        <TouchableOpacity
          style={styles.button}
          onPress={ () => this.props.navigation.navigate('Details')}
          >
-           <Text style={styles.text}>Start The Game</Text>
-       </TouchableOpacity>
+        <Text style={styles.text}>START THE GAME</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -28,22 +40,20 @@ class Body extends React.Component {
     }
   }
 
-
-  showResult = async () => {
-
+  //In first click showResult() just add to result the value of bot and player
+  //After that it adds the result too
+    showResult = async () => {
     await this.winningStrategy;
-    //arajin kliki jamanak uxaki player-y u bot-y gumaruma irar,2rdic sksac arden resultnela gumarum
         if (this.state.clicks < 1) {
-          this.setState(prevState => ({
+          this.setState({
             result: +this.state.player + +this.state.theBot
-          }))
+          })
         } else if (this.state.clicks >= 1) {
-        this.setState(prevState => ({
+        this.setState({
           result: +this.state.result + +this.state.player + +this.state.theBot
-        }))
+        })
       }
     }
-
 
     clickCount(){
       this.setState(prevState => ({
@@ -51,15 +61,15 @@ class Body extends React.Component {
       }))
     }
 
-    //winningStrategy-um taqnvaca es xaxi gaxtniqy ;)
-     winningStrategy() {
+    winningStrategy() {
       this.setState({theBot: (11 - this.state.player)})
     }
 
-    randomClick() {
-
+    componentDidUpdate() {
+      if (this.state.result >= 100) {
+        this.props.navigation.navigate("Ending")
+      }
     }
-
 
     change(player) {
     this.setState(() => {
@@ -67,9 +77,7 @@ class Body extends React.Component {
         player: parseFloat(player),
       };
     });
-}
-
-
+    }
 
   render() {
     let {player} = this.state
@@ -102,10 +110,27 @@ class Body extends React.Component {
   }
 }
 
+class End extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.endingTitle}> YOU LOSE </Text>
+        <TouchableOpacity
+         style={styles.button}
+         onPress={ () => this.props.navigation.navigate('Details')}
+         >
+        <Text style={styles.text}>START AGAIN</Text>
+        </TouchableOpacity>
+      </View>
+    )
+  }
+}
+
 const AppNavigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Details: Body
+    Details: Body,
+    Ending: End,
   },
   {
     initialRouteName: 'Home'
@@ -163,5 +188,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#00BB3E',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  endingTitle: {
+    margin: 10,
+    fontSize:55,
+    fontStyle:('normal','italic'),
+    fontWeight:('700')
   }
 });
