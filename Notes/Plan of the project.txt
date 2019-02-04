@@ -1,0 +1,4 @@
+1.Create a React Native copy of The Game - DONE!!!
+2.Create a second version of algorithm
+ 2.1.Create a method,which will take a random number between 1 and 10 - DONE
+ 2.2.Create a method,which will take a random number between 5 and 8 for click
