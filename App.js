@@ -30,15 +30,12 @@ class HomeScreen extends React.Component {
 }
 
 class Body extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
+    state = {
       player: 1,
       theBot: 1,
       result: 1,
       clicks: 0,
     }
-  }
 
   //In first click showResult() just add to result the value of bot and player
   //After that it adds the result too
@@ -46,11 +43,11 @@ class Body extends React.Component {
     await this.winningStrategy;
         if (this.state.clicks < 1) {
           this.setState({
-            result: +this.state.player + +this.state.theBot
+            result: this.state.player + this.state.theBot
           })
         } else if (this.state.clicks >= 1) {
         this.setState({
-          result: +this.state.result + +this.state.player + +this.state.theBot
+          result: this.state.result + this.state.player + this.state.theBot
         })
       }
     }
